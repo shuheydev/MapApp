@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MapApp.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <map:Map
+            x:Name="MyMap"
+            HasZoomEnabled="True"
+            MapType="Street">
+            <map:Map.ItemTemplate>
+                <DataTemplate>
+                    <map:Pin
+                        Address="{Binding Address}"
+                        Label="{Binding PlaceName}"
+                        Position="{Binding Position}" />
+                </DataTemplate>
+            </map:Map.ItemTemplate>
+        </map:Map>
+    </Grid>
+</ContentPage>
