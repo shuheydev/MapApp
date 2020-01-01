@@ -9,18 +9,31 @@
     mc:Ignorable="d">
 
     <Grid>
-        <map:Map
-            x:Name="MyMap"
-            HasZoomEnabled="True"
-            MapType="Street">
-            <map:Map.ItemTemplate>
-                <DataTemplate>
-                    <map:Pin
-                        Address="{Binding Address}"
-                        Label="{Binding PlaceName}"
-                        Position="{Binding Position}" />
-                </DataTemplate>
-            </map:Map.ItemTemplate>
-        </map:Map>
+        <!-- Mapを丸い枠の中に表示した.-->
+        <Frame
+            Padding="0"
+            BackgroundColor="AliceBlue"
+            CornerRadius="125"
+            HeightRequest="250"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="250">
+            <map:Map
+                x:Name="MyMap"
+                HasZoomEnabled="True"
+                HeightRequest="150"
+                MapType="Street"
+                WidthRequest="150">
+                <map:Map.ItemTemplate>
+                    <DataTemplate>
+                        <map:Pin
+                            Address="{Binding Address}"
+                            Label="{Binding PlaceName}"
+                            Position="{Binding Position}" />
+                    </DataTemplate>
+                </map:Map.ItemTemplate>
+            </map:Map>
+        </Frame>
+
     </Grid>
 </ContentPage>
