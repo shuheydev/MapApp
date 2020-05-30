@@ -4,13 +4,19 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:gMap="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
     xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Grid>
-        <!-- Mapを丸い枠の中に表示した.-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--  Mapを丸い枠の中に表示した.  -->
         <Frame
+            Grid.Row="0"
             Padding="0"
             BackgroundColor="AliceBlue"
             CornerRadius="125"
@@ -22,6 +28,7 @@
                 x:Name="MyMap"
                 HasZoomEnabled="True"
                 HeightRequest="150"
+                MapClicked="MyMap_MapClicked"
                 MapType="Street"
                 WidthRequest="150">
                 <map:Map.ItemTemplate>
@@ -35,5 +42,29 @@
             </map:Map>
         </Frame>
 
+        <Frame
+            Grid.Row="1"
+            Padding="0"
+            BackgroundColor="AliceBlue"
+            CornerRadius="125"
+            HeightRequest="250"
+            WidthRequest="250">
+            <gMap:Map
+                x:Name="MyMap2"
+                HasZoomEnabled="True"
+                HeightRequest="150"
+                MapLongClicked="MyMap2_MapLongClicked"
+                MapType="Street"
+                WidthRequest="150">
+                <gMap:Map.ItemTemplate>
+                    <DataTemplate>
+                        <gMap:Pin
+                            Address="{Binding Address}"
+                            Label="{Binding PlaceName}"
+                            Position="{Binding Position}" />
+                    </DataTemplate>
+                </gMap:Map.ItemTemplate>
+            </gMap:Map>
+        </Frame>
     </Grid>
 </ContentPage>

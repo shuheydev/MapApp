@@ -16,6 +16,17 @@ namespace MapApp
         public Location Location { get; set; }
     }
 
+    public class Place2
+    {
+        public string PlaceName { get; set; }
+        public string Address { get; set; }
+        public string Icon { get; set; }
+        public string Distance { get; set; }
+        public string OpenNow { get; set; }
+        public Xamarin.Forms.GoogleMaps.Position Position { get; set; }
+        public Location Location { get; set; }
+    }
+
     public class Places
     {
         public object[] html_attributions { get; set; }

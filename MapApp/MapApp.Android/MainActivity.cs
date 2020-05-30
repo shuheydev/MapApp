@@ -19,6 +19,7 @@ namespace MapApp.Droid
 
             base.OnCreate(savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);//これ
+            Xamarin.FormsGoogleMaps.Init(this,savedInstanceState);//GoogleMaps
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
